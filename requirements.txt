@@ -1,0 +1,5 @@
+ Django==4.2
+ python-dotenv==1.0.0
+ wemake-python-styleguide==0.18.0
+ psycopg2==2.9.9
+ requests==2.31.0

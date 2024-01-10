@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form class="searchbar__form" action="." method="get">
+  <label class="searchbar__label">
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="searchbar__input"
+      placeholder="example@email.com"
+      value="{{ request.GET.email }}"
+    >
+  </label>
+</form>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="container">
+  {% if context_data.status_code %}
+    <article class="verify-result">
+      <h1 class="verify-result__title">
+        An error occurred - {{ context_data.status_code }}
+      </h1>
+    </article>
+  {% else %}
+    <article class="verify-result">
+      <div class="verify-result__top">
+        <h1 class="verify-result__title">
+          {{ context_data.email }} is {{ context_data.status }}
+        </h1>
+
+        <form action="." method="post">
+          {% csrf_token %}
+          <button class="verify-result__button">Save result</button>
+        </form>
+      </div>
+
+      <span class="verify-result__score">Score - {{ context_data.score }}</span>
+
+      {% if context_data.sources %}
+        {% for source in context_data.sources %}
+          <tr>
+            <th>{{ source.domain }}</th>
+            <th>{{ source.uri }}</th>
+            <th>{{ source.extracted_on }}</th>
+            <th>{{ source.last_seen_on }}</th>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <h2 class="sources-status">
+          We couldn't find this email address publicly available on the web.
+        </h2>
+      {% endif %}
+    </article>
+  {% endif %}
+</section>
+
+{% endblock content %}

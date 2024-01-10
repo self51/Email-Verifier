@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Verifier</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/verify-email.png' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <a href="{% url 'base' %}" class="logo__link">
+        <img src="{% static 'images/verify-email.png' %}" alt="Verify email logo" class="logo">
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="{% url 'verification_service:account' %}" class="nav__link">account</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="{% url 'verification_service:email_verifier' %}" class="nav__link is-active">Email Verifier</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="{% url 'verification_service:history' %}" class="nav__link">history</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      {% block content %}
+          <article class="container__content">
+            <h1 class="content__title">
+              Email Verifier
+            </h1>
+
+            <p class="content__description">
+              Verify any email address with the most complete email checker.
+            </p>
+          </article>
+      {% endblock content %}
+    </main>
+  </body>
+</html>

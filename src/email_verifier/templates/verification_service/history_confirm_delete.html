@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="container">
+  <article class="verify-result">
+    <div class="verify-result__top">
+      <h1 class="verify-result__title">
+        Confirm delete
+      </h1>
+
+      <form method="post">
+        {% csrf_token %}
+        <button
+          class="verify-result__button verify-result__button--delete"
+          type="submit"
+          value="Confirm"
+        >
+          Delete entry
+        </button>
+      </form>
+    </div>
+
+    <span class="verify-result__score">Are you sure you want to delete "{{ object }}"??</span>
+  </article>
+</section>
+
+{% endblock content %}

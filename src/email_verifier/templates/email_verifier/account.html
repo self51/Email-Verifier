@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="container__content">
+    <h1 class="content__title">
+      Account information
+    </h1>
+
+    <ul class="content__items">
+      <li class="content__item">{{ context_data.first_name }} {{ context_data.last_name }}</li>
+      <li class="content__item">Email - {{ context_data.email }}</li>
+      <li class="content__item">Your plan - {{ context_data.plan_name }}</li>
+      <li class="content__item">Used calls - {{ context_data.used }}</li>
+      <li class="content__item">Left calls - {{ context_data.available }}</li>
+    </ul>
+  </article>
+{% endblock content %}

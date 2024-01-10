@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="container">
+  <div>
+    {% for entry in entries %}
+      <article class="verify-result">
+        <div class="verify-result__top">
+          <h1 class="verify-result__title">
+            {{ entry.email }} is {{ entry.status }}
+          </h1>
+
+          <a href="{% url 'verification_service:history-delete' entry.id %}">
+            <button class="verify-result__button verify-result__button--delete">
+              Delete entry
+            </button>
+          </a>
+        </div>
+
+        <span class="verify-result__score">Score - {{ entry.score }}</span>
+        <span class="verify-result__date">Saved at  - {{ entry.date_created }}</span>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock content %}
